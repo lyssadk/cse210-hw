@@ -20,9 +20,12 @@ public class Resume{
     // Responsibilities:
     //Keeps track of the person's name and a list of their jobs.
     public string name;
-    public List<Job> list;
+    public List<Job> list = new List<Job>();
 
 
     //Behaviors:
     //Displays the resume, which shows the name first, followed by displaying each one of the jobs.
+    public void resume_dis(){
+        Console.WriteLine($"{name}: {list}");
+    }
 }
