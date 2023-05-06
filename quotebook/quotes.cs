@@ -18,7 +18,7 @@ public class Quote {
     }
 
     public string GetQuote(){
-        return $"\"{_quote}\n{_author}";
+        return $"\"{_quote}\"\n{_author} - {_source.Stringify()}";
     }
 
 }
