@@ -1,6 +1,7 @@
 
 public class Prompt{
      List<string> _promptlist = new List<string>();
+     List<string> _usedlist = new List<string>();
     public string Random(){
         var random = new Random();
         int randomnum = random.Next(_promptlist.Count);
@@ -17,8 +18,9 @@ public class Prompt{
         _promptlist.Add("What is something interesting you saw today?");
         _promptlist.Add("if you had to describe your day in 3 words, how would you describe it?");
     }
+
+    public void removePrompt(){
+       // _usedlist.Add(_promptlist[index]);
+    }
         
-void AddPrompt(){
-       
-        }
     }
