@@ -4,6 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop03 World!");
+        //  Word word = new Word("hello");
+        // word.Display();
+        Scripture scripture = new Scripture();
+        Reference reference = new Reference("1 Nephi", 1, 3);
+        scripture.MakingWords();
+        scripture.Display();
+
+       
     }
 }
