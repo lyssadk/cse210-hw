@@ -2,11 +2,7 @@
 public class Prompt{
      List<string> _promptlist = new List<string>();
      List<string> _usedlist = new List<string>();
-    public string Random(){
-        var random = new Random();
-        int randomnum = random.Next(_promptlist.Count);
-        return _promptlist[randomnum];
-    }
+   
     
     public Prompt(){
         _promptlist.Add("What is something that made you happy today? ");

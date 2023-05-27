@@ -2,15 +2,22 @@ public class Word{
     private string _word;
     private bool _shown = true;
 
+    private bool _hasPunc = false;
+
     private int _wordCount;
-    public Word(string word){
+    public Word(string word, bool hasPunc){
         _word = word;
+        _hasPunc = hasPunc;
     }
 
-     public Word(){
-        _word = "hello";
+    public bool getPunc(){
+        return _hasPunc;
     }
 
+    public string getWord(){
+        return _word;
+    }
+    //hide word for no punctuation
 
     public void NoPunc(){
         _wordCount = _word.Count();
@@ -22,6 +29,8 @@ public class Word{
             _shown = false;
         }
     }
+
+    //hide word for punctuations
       public void Punc(){
         _wordCount = _word.Count()-1;
         _word = "";
@@ -33,6 +42,6 @@ public class Word{
         }
     }
     public void Display(){
-        Console.WriteLine($"{_word} Shown: {_shown}");
+        Console.Write($"{_word} ");
     }
 }

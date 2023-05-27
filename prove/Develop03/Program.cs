@@ -4,12 +4,23 @@ class Program
 {
     static void Main(string[] args)
     {
-        //  Word word = new Word("hello");
-        // word.Display();
         Scripture scripture = new Scripture();
-        Reference reference = new Reference("1 Nephi", 1, 3);
-        scripture.MakingWords();
-        scripture.Display();
+        while(true){
+            scripture.Display();
+            Console.WriteLine("Hit enter to hide a word or type quit to stop");
+            string input = Console.ReadLine();
+            scripture.HideRandomWord();
+            
+            if (input == "quit")
+            {
+                break;
+            }
+
+
+        }
+
+
+        
 
        
     }
