@@ -5,7 +5,7 @@ public class Quote {
 
     public Quote(string person, string qoute, Source source){
         _author = person;
-        _quote = quote;
+        // _quote = quote;
         _source = source;
 
     }
@@ -17,8 +17,8 @@ public class Quote {
         return false;
     }
 
-    public string GetQuote(){
-        return $"\"{_quote}\"\n{_author} - {_source.Stringify()}";
-    }
+   // public string GetQuote(){
+        //return $"\"{_quote}\"\n{_author} - {_source.Stringify()}";
+   // }
 
 }

@@ -9,7 +9,7 @@ public class Entry{
      date = theCurrentTime.ToShortDateString();
 
       Prompt lprompt = new Prompt();
-      prompt = lprompt.Random();
+      //prompt = lprompt.Random();
 
     }
 

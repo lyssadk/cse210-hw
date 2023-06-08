@@ -7,4 +7,4 @@ Source source = new Source("None were with Him", "http://www.churchofjesuschrist
 Console.WriteLine(source.Stringify());
 
 Quote holland = new Quote("Elder Holland", "Because Jesus had to walk sucha long lonely path, you do not have to", source);
-Console.WriteLine(holland.GetQuote());
+//Console.WriteLine(holland.GetQuote());
