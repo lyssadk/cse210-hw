@@ -26,28 +26,18 @@ public class Listing:Activity{
     }
 
     public void begin(int seconds){
-        // Spin();
-        DateTime startT = DateTime.Now;
-        DateTime futureT = startT.AddSeconds(seconds);
-
+        //Spin();
+        
+        DateTime futureTime = Time(seconds);
         Thread.Sleep(1000);
-        DateTime currentTime = DateTime.Now;
 
         // grabs a random prompt
         prompt.GetRandomPrompt(_prompts);
 
-        while (currentTime < futureT){
+        while (DateTime.Now < futureTime){
         // code here that loops, running the readline until the timer is up that they set!, BUT IT NEVER STOPS???????????????????? HELP????????
             string entry = Console.ReadLine();
             _entries.Add(entry);
-
-            //me tryna catch my errors???
-            if (entry == "quit"){
-                entriesCount(seconds);
-                break;
-            }
-
-
         }
 
         entriesCount(seconds);

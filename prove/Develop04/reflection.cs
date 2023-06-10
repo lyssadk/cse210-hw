@@ -22,17 +22,17 @@ public class Reflection:Activity{
     public Reflection(): base("Reflection", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life", "End Message"){
 
     }
-    public void refStart(){
+    public void refStart(int seconds){
         Console.WriteLine("Take a few seconds to think about the following:");
         prompt.GetRandomPrompt(_initialPrompts);
         Console.WriteLine("");
 
-        //int _timeElapsed = 1;
+        DateTime future = Time(seconds);
 
-       // while (_timeElapsed != _seconds){
-        prompt.GetRandomPrompt(_followPrompts);
-        
-       // }
+        while(DateTime.Now < future){
+            Thread.Sleep(4000);
+            prompt.GetRandomPrompt(_followPrompts);
+        }
 
     }
 

@@ -17,14 +17,13 @@ public class Activity{
 
     public virtual void Display(){
         Console.WriteLine($"This is the {_name} Activity. {_description}.");
-        SetSeconds();
         Countdown();
 
     }
 
     public int SetSeconds(){
         Console.WriteLine("How many seconds would you like this program to run for?");
-        return Console.Read();
+        return int.Parse(Console.ReadLine());
 
     }
 
@@ -47,22 +46,24 @@ public class Activity{
     }
     public void Spin(){
 
-        DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(_seconds);
+        // # help
 
-        Thread.Sleep(3000);
+    //    // DateTime futureTime = Time();
+    //     Thread.Sleep(3000);
 
-        DateTime currentTime = DateTime.Now;
-        if (currentTime < futureTime)
-        {
-            Console.Write("/");
-            Thread.Sleep(200);
-            Console.Write("\b \b"); // Erase the + character
-            Console.Write("|");
-            Thread.Sleep(200);
-            Console.Write("\b \b"); // Erase the + character
-            Console.Write("\\");
-        }
+    //     while (DateTime.Now < futureTime)
+    //     {
+    //         Console.Write("/");
+    //         Thread.Sleep(200);
+    //         Console.Write("\b \b"); // Erase the + character
+    //         Console.Write("|");
+    //         Thread.Sleep(200);
+    //         Console.Write("\b \b"); // Erase the + character
+    //         Console.Write("\\");
+    //     }
     }
-
+    public DateTime Time(int seconds){
+        DateTime startTime = DateTime.Now;
+        return startTime.AddSeconds(seconds);
+    }
 }

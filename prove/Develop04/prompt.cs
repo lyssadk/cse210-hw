@@ -9,15 +9,17 @@ public class Prompt{
         while(true){
 
             if(listOfPrompts.Count != 0){
-                //_usedPrompts.Count() != listOfPrompts.Count()){
+                //_usedPrompts.Count() != listOfPrompts.Count()){  --> this was what it was b4:)
                 Random random = new Random();
                 int index = random.Next(listOfPrompts.Count);
+
                 if(_usedPrompts.Contains(listOfPrompts[index])){
                     
                 }
                 else{
                 Console.WriteLine($"{listOfPrompts[index]}");
                 _usedPrompts.Add(listOfPrompts[index]);
+                // test: _usedPrompts.ForEach(p => Console.WriteLine(p));
                 listOfPrompts.RemoveAt(index);
                 break;
                 }
@@ -32,8 +34,8 @@ public class Prompt{
                 foreach (string prompt in _usedPrompts)
                 {   
                     listOfPrompts.Add(prompt);
-                    _usedPrompts.Remove(prompt);
                 }
+                _usedPrompts.Clear();
             }
             else{
                 Random random = new Random();

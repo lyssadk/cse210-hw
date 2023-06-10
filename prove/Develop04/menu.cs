@@ -16,16 +16,19 @@ public class Menu{
             
             if (_userChoice == "1"){
                 breathing.Display();
+                breathing.BreathMessage(secondsl);
                 Console.Clear();
                 // ideally this would have it wait for the allotted time the user put in before running menu again. but ??? who knows.
-                Thread.Sleep((secondsl*1000)+100);
+                Thread.Sleep((secondsl*10)+100);
             }
             if (_userChoice == "2"){
+                list.Display();
                 list.begin(secondsl);
-                Thread.Sleep((secondsl*1000)+100);
+                // Thread.Sleep((secondsl*1000)+100);
             }
             if (_userChoice == "3"){
-                reflection.refStart();
+                reflection.Display();
+                reflection.refStart(secondsl);
                 Thread.Sleep((secondsl*1000)+100);
             }
             if (_userChoice == "4"){
