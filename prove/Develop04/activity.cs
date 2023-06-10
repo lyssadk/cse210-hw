@@ -9,11 +9,11 @@ public class Activity{
        _description = description;
        _EndMessage = EndMessage;
     }
-      public Activity(){
-       _name = "";
-       _description = "";
-       _EndMessage = "";
-    }
+    //   public Activity(){
+    //    _name = "";
+    //    _description = "";
+    //    _EndMessage = "";
+    // }
 
     public virtual void Display(){
         Console.WriteLine($"This is the {_name} Activity. {_description}.");
