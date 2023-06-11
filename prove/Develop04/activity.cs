@@ -66,6 +66,6 @@ public class Activity{
     public string Ending(int seconds, string activity){
         _seconds = seconds;
         _name = activity;
-        return $"You have completeted another {_seconds} seconds of the {_name} Activity! Well done";
+        return $"You have completed another {_seconds} seconds of the {_name} Activity! Well done";
     }
 }
