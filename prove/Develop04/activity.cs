@@ -15,18 +15,14 @@ public class Activity{
 
     public int SetSeconds(){
         Console.WriteLine("How many seconds would you like this program to run for?");
-        int seconds = int.Parse(Console.ReadLine());
-
+        _seconds = int.Parse(Console.ReadLine());
         Console.Write("Get Ready!");
         Countdown(4);
 
-        return seconds;
+        return _seconds;
 
     }
 
-    public void Pause(){
-
-    }
 
     public void Countdown(int count){
     
@@ -36,6 +32,7 @@ public class Activity{
             Console.Write($"{count}");
             Thread.Sleep(1000);
             Console.Write("\b \b");
+            
 
         } while (count>0);         
     }
@@ -54,7 +51,7 @@ public class Activity{
             Console.Write("|");
             Thread.Sleep(200);
             Console.Write("\b \b"); // Erase the + character
-            Console.Write("\\");
+            Console.Write("-");
             Console.Write("\b \b");
         }
     }

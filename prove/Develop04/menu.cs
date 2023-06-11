@@ -20,7 +20,7 @@ public class Menu{
                 Console.Clear();
                 breathing.Display();
                 int secondsl = breathing.SetSeconds();
-                breathing.BreathMessage(secondsl);
+                breathing.BreathMessage();
                 // ideally this would have it wait for the allotted time the user put in before running menu again. but ??? who knows.
             }
             if (_userChoice == "2"){

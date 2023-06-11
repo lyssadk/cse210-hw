@@ -4,8 +4,8 @@ public class Breathing:Activity{
 
     }
 
-    public void BreathMessage(int seconds){
-        DateTime futureTime = Time(seconds);
+    public void BreathMessage(){
+        DateTime futureTime = Time(_seconds);
         
 
         // while loop that takes the seconds the person put in and divides it by 6 seconds to 
@@ -21,7 +21,7 @@ public class Breathing:Activity{
             Countdown(6);
             Console.Clear();
         }
-        Console.WriteLine(Ending(seconds, _name));
+        Console.WriteLine(Ending(_seconds, _name));
     }
 
     public override void Display()
