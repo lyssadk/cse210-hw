@@ -27,9 +27,8 @@ public class Prompt{
             }
 
             // if the count of the list is 0 then this would loop through each prompt in the used prompts list and add it back
-            // to the listofPrompts, but the code doesnt like this??????
+            // to the listofPrompts
 
-            // other question: is there a way to make a method for the date time stuff and call it rather than copying and pasting it again and again?
             else if(listOfPrompts.Count == 0){
                 foreach (string prompt in _usedPrompts)
                 {   

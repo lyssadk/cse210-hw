@@ -1,29 +1,26 @@
 public class Activity{
-    protected string _name = "test";
-    protected string _description = "test";
-    protected int _seconds;
-    private string _EndMessage;
+    protected string _name;
+    protected string _description;
 
-    public Activity(string name, string description, string EndMessage){
+    protected int _seconds;
+
+    public Activity(string name, string description){
        _name = name;
        _description = description;
-       _EndMessage = EndMessage;
     }
-    //   public Activity(){
-    //    _name = "";
-    //    _description = "";
-    //    _EndMessage = "";
-    // }
 
     public virtual void Display(){
-        Console.WriteLine($"This is the {_name} Activity. {_description}.");
-        Countdown();
-
+        Console.WriteLine($"This is the {_name} Activity.\n{_description}.");
     }
 
     public int SetSeconds(){
         Console.WriteLine("How many seconds would you like this program to run for?");
-        return int.Parse(Console.ReadLine());
+        int seconds = int.Parse(Console.ReadLine());
+
+        Console.Write("Get Ready!");
+        Countdown(4);
+
+        return seconds;
 
     }
 
@@ -31,39 +28,44 @@ public class Activity{
 
     }
 
-    public void Countdown(){
-        Console.WriteLine($"Beginning {_name} Activity in: ");
-        int i = 4;
+    public void Countdown(int count){
     
         do
         {   
-            i -= 1;
-            Console.Write($"{i}");
+            count -= 1;
+            Console.Write($"{count}");
             Thread.Sleep(1000);
             Console.Write("\b \b");
 
-        } while (i>0);         
+        } while (count>0);         
     }
-    public void Spin(){
+    public void Spin(int seconds){
 
         // # help
 
-    //    // DateTime futureTime = Time();
-    //     Thread.Sleep(3000);
+        DateTime futureTime = Time(seconds);
+        Thread.Sleep(3000);
 
-    //     while (DateTime.Now < futureTime)
-    //     {
-    //         Console.Write("/");
-    //         Thread.Sleep(200);
-    //         Console.Write("\b \b"); // Erase the + character
-    //         Console.Write("|");
-    //         Thread.Sleep(200);
-    //         Console.Write("\b \b"); // Erase the + character
-    //         Console.Write("\\");
-    //     }
+        while (DateTime.Now < futureTime)
+        {
+            Console.Write("/");
+            Thread.Sleep(200);
+            Console.Write("\b \b"); // Erase the + character
+            Console.Write("|");
+            Thread.Sleep(200);
+            Console.Write("\b \b"); // Erase the + character
+            Console.Write("\\");
+            Console.Write("\b \b");
+        }
     }
     public DateTime Time(int seconds){
         DateTime startTime = DateTime.Now;
         return startTime.AddSeconds(seconds);
+    }
+
+    public string Ending(int seconds, string activity){
+        _seconds = seconds;
+        _name = activity;
+        return $"You have completeted another {_seconds} seconds of the {_name} Activity! Well done";
     }
 }

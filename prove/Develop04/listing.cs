@@ -17,7 +17,7 @@ public class Listing:Activity{
 
     private List<string> _entries = new List<string>();
 
-    public Listing():base("Listing", "description", "End Message"){
+    public Listing():base("Listing", "This activity will help you reflect on the good things in your life\n by having you list as many things as you can in a certain area."){
 
     }
 
@@ -26,7 +26,6 @@ public class Listing:Activity{
     }
 
     public void begin(int seconds){
-        //Spin();
         
         DateTime futureTime = Time(seconds);
         Thread.Sleep(1000);
@@ -35,31 +34,40 @@ public class Listing:Activity{
         prompt.GetRandomPrompt(_prompts);
 
         while (DateTime.Now < futureTime){
-        // code here that loops, running the readline until the timer is up that they set!, BUT IT NEVER STOPS???????????????????? HELP????????
+        // code here that loops, running the readline until the timer is up that they set!
             string entry = Console.ReadLine();
             _entries.Add(entry);
         }
-
+        // counts how many they were able to list
         entriesCount(seconds);
+        
+        //end message 
+        Console.WriteLine(Ending(seconds, _name));
+
+        // clears the list afterwards so it starts fresh next time.
+        _entries.Clear();
     }
     public void entriesCount(int seconds){
         // count how many entries they were able to list in their timeframe.
         int entryC = _entries.Count();
         if (seconds >= 0 && seconds <= 30){
-            if (entryC < 7){
-                Console.WriteLine($"You were able to list {entryC} items in {seconds} seconds. Pop off thats crazy.");
+            if (entryC > 7){
+                Console.WriteLine($"\nYou were able to list {entryC} items in {seconds} seconds. Pop off thats crazy.");
             }
             else{
-                Console.WriteLine($"You were able to list {entryC} items in {seconds} seconds. You really pondered and took your time.");
+                Console.WriteLine($"\nYou were able to list {entryC} items in {seconds} seconds. You really pondered and took your time.");
             }
         }
         else if (seconds >= 60 && seconds <=120){
-              if (entryC < 15){
-                Console.WriteLine($"You were able to list {entryC} items in {seconds} seconds. Pop off thats crazy.");
+              if (entryC > 25){
+                Console.WriteLine($"\nYou were able to list {entryC} items in {seconds} seconds. Pop off thats crazy.");
             }
             else{
-                Console.WriteLine($"You were able to list {entryC} items in {seconds} seconds. You really pondered and took your time.");
+                Console.WriteLine($"\nYou were able to list {entryC} items in {seconds} seconds. You really pondered and took your time.");
             }
+        }
+        else{
+            Console.WriteLine($"You were able to list {entryC} items in {seconds} seconds.");
         }
     }
 

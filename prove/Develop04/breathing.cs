@@ -1,32 +1,33 @@
 public class Breathing:Activity{
 
-    public Breathing():base("Breathing", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.", "End Message"){
+    public Breathing():base("Breathing", "This activity will help you relax by walking your through breathing in and out slowly.\n Clear your mind and focus on your breathing."){
 
     }
 
     public void BreathMessage(int seconds){
         DateTime futureTime = Time(seconds);
+        
 
         // while loop that takes the seconds the person put in and divides it by 6 seconds to 
         // the lower number and then runs the program that many times of the breathing countdown
         while (DateTime.Now < futureTime){
-            
+            Console.Clear();
             // breathing program:
             Console.Write("Breathe in for:");
-            Console.WriteLine("6");
-            Thread.Sleep(6000);
+            Countdown(6);
+            Console.Clear();
 
             Console.Write("Breathe out for:");
-            Console.WriteLine("6");
-            Thread.Sleep(6000);
-            //after running 1 time -> -1 from the number of times
+            Countdown(6);
+            Console.Clear();
         }
+        Console.WriteLine(Ending(seconds, _name));
     }
 
     public override void Display()
     {
         Console.Clear();
         base.Display();
-        Thread.Sleep(2000);
+        Thread.Sleep(3000);
     }
 }

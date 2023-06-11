@@ -19,20 +19,33 @@ public class Reflection:Activity{
         "How can you keep this experience in mind in the future?"
     };
     Prompt prompt = new Prompt();
-    public Reflection(): base("Reflection", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life", "End Message"){
+    public Reflection(): base("Reflection", "This activity will help you reflect on times in your life when you have shown strength and resilience.\nThis will help you recognize the power you have and how you can use it in other aspects of your life"){
 
     }
     public void refStart(int seconds){
         Console.WriteLine("Take a few seconds to think about the following:");
+        Console.WriteLine("");
         prompt.GetRandomPrompt(_initialPrompts);
         Console.WriteLine("");
 
         DateTime future = Time(seconds);
-
-        while(DateTime.Now < future){
-            Thread.Sleep(4000);
+        
+        int i = 2;
+        /// fix this up brotha 
+        while(DateTime.Now < future && i !=0){
+            i -=1;
+            Thread.Sleep(7000);
             prompt.GetRandomPrompt(_followPrompts);
+            Console.WriteLine("");
+
+            if (i == 0){
+                Thread.Sleep(7000);
+                prompt.GetRandomPrompt(_initialPrompts);
+                i += 2; 
+            }
         }
+        
+        Console.WriteLine(Ending(seconds, _name));
 
     }
 
