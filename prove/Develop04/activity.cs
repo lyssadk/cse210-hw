@@ -34,14 +34,14 @@ public class Activity{
             Console.Write("\b \b");
             
 
-        } while (count>0);         
+        } while (count>0); 
+      
     }
     public void Spin(int seconds){
 
         // # help
 
         DateTime futureTime = Time(seconds);
-        Thread.Sleep(3000);
 
         while (DateTime.Now < futureTime)
         {

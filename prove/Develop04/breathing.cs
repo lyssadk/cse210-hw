@@ -13,10 +13,9 @@ public class Breathing:Activity{
         while (DateTime.Now < futureTime){
             Console.Clear();
             // breathing program:
-            Console.Write("Breathe in for:");
+            Console.Write("Breathe in for: ");
             Countdown(6);
-            Console.Clear();
-
+            Console.WriteLine("");
             Console.Write("Breathe out for:");
             Countdown(6);
             Console.Clear();
