@@ -1,6 +1,6 @@
 public class fileHandler{
     private string _fileName = "default.txt";
-    private List<Goal> goals = new List<Goal>(); // je suis tres confused
+    // why fo i need a seperate text thing and not a list?? je suis tres confused
 
     public fileHandler(string filename){
         _fileName = filename;

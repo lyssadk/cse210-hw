@@ -1,4 +1,6 @@
 public class Eternal : Goal{
+
+    // i want this to keep track of 
   public override void setPoints(){
      while ( _difficulty == 0)
         {

@@ -4,10 +4,31 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop05 World!");
+        // testing stuff
+        List<Person> users = new List<Person>();
+        Person alyssa = new Person("alyssa", "securepassw0rd");
+        users.Add(alyssa);
+        string personname = alyssa.GetName();
+        string personpass = alyssa.GetPass();
 
-        Checklist goal = new Checklist();
-        goal.setPoints();
+        Console.WriteLine("Please Enter Your Name:");
+        string username = Console.ReadLine();
+        Console.WriteLine("Enter password:");
+        string password = Console.ReadLine();
+
+
+        if (password == personpass && username == personname ){
+            alyssa.Display();
+        }
+
+        else {
+            Console.WriteLine("Error: Username or password did not match.");
+        }
+
+        // Checklist goal = new Checklist();
+        // goal.setPoints();
         
     }
 }
+
+

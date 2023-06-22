@@ -31,5 +31,9 @@ public abstract class Goal{
     public void Complete(){
         // this would set a goal they check off as completed? maybe or do i  do that somewhere else???
     }
+
+    public int GetPoint(){
+        return _points;
+    }
    
 }

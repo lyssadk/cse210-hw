@@ -13,4 +13,4 @@ public class Event{
     // so like it would list out the goals in a numbered list format and you would input the number of which goal you completed, it would take the score and add it to the players initial score.
 }
 
-// jk update, im might be stealing this and putting it in the person
+// jk update, im might be stealing this and putting it in the person probs. This class is tbd if its needed
