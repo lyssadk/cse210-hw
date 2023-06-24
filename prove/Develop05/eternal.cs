@@ -1,9 +1,14 @@
 public class Eternal : Goal{
 
+    public Eternal(string title, string description, int points, int difficulty):base(title, description, points, difficulty){
+        _goalType = "Eternal";
+    }
+    public Eternal(string goalType):base(goalType){
+
+    }
     // i want this to keep track of 
-  public override void setPoints(){
-     while ( _difficulty == 0)
-        {
+    public override void setPoints(){
+        while ( _difficulty == 0){
             Console.WriteLine("How hard is this goal for you on a scale of 1-5? (enter a whole number)");
             int userNumber = int.Parse(Console.ReadLine());
 
@@ -20,5 +25,9 @@ public class Eternal : Goal{
             
             Console.WriteLine($"It will be worth {_points} points when you complete it");
         }
-  }
+    }
+
+    public override string GetStringRepGoal(){
+        return $"{_goalType},{_title},{_description},{_points},{_difficulty}";
+    }
 }

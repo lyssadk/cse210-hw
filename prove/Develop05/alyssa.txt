@@ -1,0 +1,6 @@
+123456,seed,200,3
+Simple,swim,swim a mile,200,2,True
+swim,swim a mile,50,2,0,3,0,False
+Eternal,scriptures,read a verse a day,30,3
+eternal,water,water 8oz a day,50,5
+eternal,walking,walk 10,000 steps a day,30,3
