@@ -52,7 +52,7 @@ public abstract class Goal{
         return _complete;
     }
 
-    public void Display(){
+    public virtual void Display(){
         Console.WriteLine($"Goal: {_title} || Description: {_description} || Points: {_points} || Difficulty: {_difficulty} || Completed: {_complete}");
     }
 

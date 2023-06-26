@@ -42,10 +42,18 @@ public abstract class Goal{
         return _complete;
     }
 
+    public bool SetFalse(){
+        _complete = false;
+        return _complete;
+    }
+
     public int GetPoint(){
         return _points;
     }
 
+    public string GetGoalType(){
+        return _goalType;
+    }
     public virtual void Display(){
         Console.WriteLine($"{_goalType}: {_title} || Description: {_description} || Points: {_points} || Difficulty: {_difficulty} || Completed: {_complete}");
     }

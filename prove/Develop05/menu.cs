@@ -77,11 +77,20 @@ public class Menu{
                 Console.WriteLine("Which goal would you like to complete/add an event for? (enter a number)");
                 int completedGoal = int.Parse(Console.ReadLine() ?? string.Empty); 
                 int completeIndex = completedGoal - 1;
-                goals[completeIndex].SetComplete();
-                user.calculateScore(goals[completeIndex]);                
-                // adjust the set complete in each child class
-                Console.WriteLine($"You have been awarded {goals[completeIndex].GetPoint()} points. Good Job!");
-                
+                Goal goalComplete = goals[completeIndex];
+                if (goalComplete.GetGoalType() != "eternal"){
+
+                    goalComplete.SetComplete();
+                    user.calculateScore(goals[completeIndex]);
+                    // adjust the set complete in each checklist
+                    Console.WriteLine($"You have been awarded {goals[completeIndex].GetPoint()} points. Good Job!");
+                }
+                else if(goalComplete.GetGoalType() == "eternal"){
+                    goalComplete.SetComplete();
+                    user.calculateScore(goals[completeIndex]);
+                    Console.WriteLine($"You have been awarded {goals[completeIndex].GetPoint()} points. Good Job!");
+                    goalComplete.SetFalse();
+                }
             }
 
             else if (userChoice == "4"){
