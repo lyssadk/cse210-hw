@@ -45,7 +45,7 @@ public class Checklist : Goal {
     }
 
     public override string GetStringRepGoal(){
-        return $"{_title},{_description},{_points},{_difficulty},{_checklistLeft},{_checklistTotal},{_bonusPoint},{_complete}";
+        return $"{_goalType}:{_title},{_description},{_points},{_difficulty},{_checklistLeft},{_checklistTotal},{_bonusPoint},{_complete}";
     }
 
 }
