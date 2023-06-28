@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-
+        Console.WriteLine("starting up");
         fileHandler filer = new fileHandler();
         List<Goal> goals = filer.Load();
 
@@ -15,5 +15,5 @@ class Program
     }
 }
 
-
+// Console.WriteLine("here");
 //wireframe

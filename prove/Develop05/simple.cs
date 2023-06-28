@@ -30,6 +30,6 @@ public class Simple : Goal{
     }
 
     public override string GetStringRepGoal(){
-        return $"{_goalType},{_title},{_description},{_points},{_difficulty},{_complete}";
+        return $"{_goalType}:{_title},{_description},{_points},{_difficulty},{_complete}";
     }
 }

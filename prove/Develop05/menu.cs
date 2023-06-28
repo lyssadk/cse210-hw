@@ -102,6 +102,8 @@ public class Menu{
             
                     foreach (Goal goal in goals){
                         sw.WriteLine(goal.GetStringRepGoal());
+
+                        // fix the how the 
                     }
                 }
                 
