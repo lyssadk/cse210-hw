@@ -1,4 +1,0 @@
-123456,seed,0,3
-simple:swim,swim a mile,200,2,false
-checklist:swim,swim a mile,50,2,0,3,150,false
-eternal:scriptures,read a verse a day,30,3
