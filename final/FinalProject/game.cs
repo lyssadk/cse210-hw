@@ -10,5 +10,6 @@ public abstract class Game{
     protected Player _winner;
 
     public abstract Player DetermineWinner();
+    public abstract void Begin();
 
 }

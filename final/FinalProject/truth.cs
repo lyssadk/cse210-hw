@@ -3,4 +3,8 @@ public class TruthOrDare : Game {
         
         return _winner;
     }
+    public override void Begin()
+    {
+        
+    }
 }
