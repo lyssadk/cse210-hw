@@ -78,7 +78,7 @@ public class Menu{
                 int completedGoal = int.Parse(Console.ReadLine() ?? string.Empty); 
                 int completeIndex = completedGoal - 1;
                 Goal goalComplete = goals[completeIndex];
-                if (goalComplete.GetGoalType() != "eternal"){
+                if (goalComplete.GetGoalType() == "simple"){
 
                     goalComplete.SetComplete();
                     user.calculateScore(goals[completeIndex]);
@@ -90,6 +90,11 @@ public class Menu{
                     user.calculateScore(goals[completeIndex]);
                     Console.WriteLine($"You have been awarded {goals[completeIndex].GetPoint()} points. Good Job!");
                     goalComplete.SetFalse();
+                }
+                else if(goalComplete.GetGoalType() == "checklist"){
+                    goalComplete.SetComplete();
+                    user.calculateScore(goals[completeIndex]);
+                    Console.WriteLine($"You have been awarded {goals[completeIndex].GetPoint()} points. Good Job!");
                 }
             }
 
@@ -103,7 +108,6 @@ public class Menu{
                     foreach (Goal goal in goals){
                         sw.WriteLine(goal.GetStringRepGoal());
 
-                        // fix the how the 
                     }
                 }
                 

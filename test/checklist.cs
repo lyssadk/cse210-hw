@@ -39,8 +39,16 @@ public class Checklist : Goal {
         }
     }
 
-    public override void checkOffGoal()
-    {
+    public override void checkOffGoal(){
+        if(_checklistLeft != _checklistTotal){
+            _checklistLeft = _checklistLeft + 1;
+            if(_checklistLeft == _checklistTotal){
+                _complete = true;
+            }
+        }
+        else if (_checklistLeft == _checklistTotal){
+            _complete = true;
+        }
         // this would allow the user to set a goal to complete
     }
 

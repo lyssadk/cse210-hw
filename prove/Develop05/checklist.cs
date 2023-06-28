@@ -36,6 +36,21 @@ public class Checklist : Goal {
 
         }
     }
+
+    public override bool SetComplete()
+    {
+        if(_checklistLeft != _checklistTotal){
+            _checklistLeft = _checklistLeft + 1;
+            if(_checklistLeft == _checklistTotal){
+                _complete = true;
+            }
+        }
+        else if (_checklistLeft == _checklistTotal){
+            _complete = true;
+        }
+        return _complete;
+        // this would allow the user to set a goal to complete
+    }
     
     public override void Display(){
         Console.WriteLine($"{_goalType}: {_title} || Description: {_description} || Points: {_points} || Difficulty: {_difficulty} || Completed: {_checklistLeft}/{_checklistTotal}");
