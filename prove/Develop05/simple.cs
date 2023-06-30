@@ -28,11 +28,7 @@ public class Simple : Goal{
             Console.WriteLine($"It will be worth {_points} points when you complete it");
         }
     }
-    public override bool SetComplete()
-    {
-        return base.SetComplete();
-    }
-
+   
     public override string GetStringRepGoal(){
         return $"{_goalType}:{_title},{_description},{_points},{_difficulty},{_complete}";
     }

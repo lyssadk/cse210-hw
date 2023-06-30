@@ -6,10 +6,9 @@ public abstract class Game{
     //straigh face
     //2 truths and a lie
 
-    protected List<Player> players;
     protected Player _winner;
 
     public abstract Player DetermineWinner();
-    public abstract void Begin();
+    public abstract void Begin(List<Player> players);
 
 }

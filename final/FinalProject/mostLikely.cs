@@ -1,5 +1,6 @@
 public class MostLikelyTo : Game {
     private List<string> prompts = new List<string>();
+    // would i do a filehandler just inside each one or be able to call it in here?
     private List<string> userPrompts = new List<string>();
 
     // enter player names, and ask if they want our preloaded most likely to prompts, or if they want their own
@@ -9,7 +10,7 @@ public class MostLikelyTo : Game {
     public override Player DetermineWinner(){
         return _winner;
     }
-    public override void Begin()
+    public override void Begin(List<Player> players)
     {
         while (true)
         {
@@ -53,6 +54,9 @@ public class MostLikelyTo : Game {
             }
             else if (decision == "4"){
                 // do nothing so it goes back to the main program.
+                Console.WriteLine("Heading back to main menu");
+                Thread.Sleep(2000);
+                Console.Clear();
                 break;
             }
             else{

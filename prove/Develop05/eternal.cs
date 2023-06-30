@@ -27,10 +27,7 @@ public class Eternal : Goal{
         }
     }
 
-    public override bool SetComplete()
-    {
-        return base.SetComplete();
-    }
+    
     public override string GetStringRepGoal(){
         return $"{_goalType}:{_title},{_description},{_points},{_difficulty}";
     }

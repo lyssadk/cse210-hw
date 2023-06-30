@@ -77,25 +77,28 @@ public class Menu{
                 Console.WriteLine("Which goal would you like to complete/add an event for? (enter a number)");
                 int completedGoal = int.Parse(Console.ReadLine() ?? string.Empty); 
                 int completeIndex = completedGoal - 1;
-                Goal goalComplete = goals[completeIndex];
-                if (goalComplete.GetGoalType() == "simple"){
-
-                    goalComplete.SetComplete();
-                    user.calculateScore(goals[completeIndex]);
-                    // adjust the set complete in each checklist
-                    Console.WriteLine($"You have been awarded {goals[completeIndex].GetPoint()} points. Good Job!");
-                }
-                else if(goalComplete.GetGoalType() == "eternal"){
-                    goalComplete.SetComplete();
-                    user.calculateScore(goals[completeIndex]);
-                    Console.WriteLine($"You have been awarded {goals[completeIndex].GetPoint()} points. Good Job!");
-                    goalComplete.SetFalse();
-                }
-                else if(goalComplete.GetGoalType() == "checklist"){
-                    goalComplete.SetComplete();
-                    user.calculateScore(goals[completeIndex]);
-                    Console.WriteLine($"You have been awarded {goals[completeIndex].GetPoint()} points. Good Job!");
-                }
+                goals[completeIndex].SetComplete();
+                user.calculateScore(goals[completeIndex]);
+                
+                // Goal goalComplete = goals[completeIndex];
+                // if (goalComplete.GetGoalType() == "simple"){
+                //     goalComplete.SetComplete();
+                //     user.calculateScore(goals[completeIndex]);
+                //     // adjust the set complete in each checklist
+                //     Console.WriteLine($"You have been awarded {goals[completeIndex].GetPoint()} points. Good Job!");
+                // }
+                // else if(goalComplete.GetGoalType() == "eternal"){
+                //     goalComplete.SetComplete();
+                //     user.calculateScore(goals[completeIndex]);
+                //     Console.WriteLine($"You have been awarded {goals[completeIndex].GetPoint()} points. Good Job!");
+                //     goalComplete.SetFalse();
+                // }
+                // else if(goalComplete.GetGoalType() == "checklist"){
+                //     //since it can't 
+                //     goalComplete.SetComplete();
+                //     user.calculateScore(goals[completeIndex]);
+                //     Console.WriteLine($"You have been awarded {goals[completeIndex].GetPoint()} points. Good Job!");
+                // }
             }
 
             else if (userChoice == "4"){

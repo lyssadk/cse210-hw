@@ -38,6 +38,7 @@ public class Checklist : Goal {
     }
 
     public override bool SetComplete()
+    // so snce i cant convert a goal to a specific goal will i just need to create a new method in goal that handles this case and just have a get checklist left/ checklist amount?
     {
         if(_checklistLeft != _checklistTotal){
             _checklistLeft = _checklistLeft + 1;

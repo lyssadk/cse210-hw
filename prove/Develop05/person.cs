@@ -24,19 +24,19 @@ public class Person{
         if(score <= 5000){
             _levelName = "seed";
         }
-        if( 5001 <= score && score <= 15000){
+        if( 501 <= score && score <= 1500){
             _levelName = "sprout";
         }
-         if(15001 <= score && score <=30000){
+         if(1501 <= score && score <=3000){
             _levelName = "seedling";
         }
-        if(30001<= score && score <= 50000){
+        if(3001<= score && score <= 5000){
             _levelName = "sapling";
         }
-        if(50001<= score && score <= 70000){
+        if(5001<= score && score <= 7000){
             _levelName = "tree";
         }
-        if(score > 70000){
+        if(score > 7000){
             _score = 0;
             Console.WriteLine("You Did it! You made a tree. Your points will reset now");
             _trees =+ 1;
