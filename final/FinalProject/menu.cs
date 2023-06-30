@@ -7,7 +7,7 @@ public class Menu{
     
     public void display(){
         Console.WriteLine("--------------------------");
-        Console.WriteLine("     LETS PARTY HARDY       ");
+        Console.WriteLine("        LETS PARTY      ");
         Console.WriteLine("--------------------------");
         Console.WriteLine("");
         Console.WriteLine("Begin by entering player names.");
