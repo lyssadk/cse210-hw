@@ -17,7 +17,7 @@ public class Menu{
         //     Console.WriteLine(player.GetName());
         // }
         while (true){
-            Console.WriteLine("Select an option below:\n1. Most Likely To\n2. Truth or Dare\n3. Two truths and a lie\n4. Add player\n5. Remove Player \n6. Quit");
+            Console.WriteLine("Select an option below:\n1. Most Likely To\n2. Truth or Dare\n3. Two truths and a lie\n4. Add player\n5. Remove Player\n6. Display Scores\n7. Quit");
             userChoice = int.Parse(Console.ReadLine());
             Console.Clear();
 
@@ -48,6 +48,14 @@ public class Menu{
 
             }
             else if(userChoice == 6){
+                Console.Clear();
+                Console.WriteLine($"PLAYER| SCORE");
+                foreach(Player player in players){
+                   Console.WriteLine($"{player.GetName().ToUpper()} | {player.GetScore()}");
+                }
+
+            }
+             else if(userChoice == 7){
                 break;
             }
            

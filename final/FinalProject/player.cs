@@ -15,4 +15,8 @@ public class Player{
     public string GetName(){
         return _name;
     }
+
+    public int GetScore(){
+        return _score;
+    }
 }

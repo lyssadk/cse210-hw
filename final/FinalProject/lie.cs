@@ -3,7 +3,7 @@ public class CanYouHear : Game {
     public override void Begin(List<Player> players){
 
     }
-    public override Player DetermineWinner(){
-        return _winner;
+    public override void DetermineWinner(List<Player> players){
+    
     }
 }
