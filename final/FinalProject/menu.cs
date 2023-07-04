@@ -12,10 +12,7 @@ public class Menu{
         Console.WriteLine("");
         Console.WriteLine("Begin by entering player names.");
         GetPlayers(players);
-        // foreach (Player player in players)
-        // {
-        //     Console.WriteLine(player.GetName());
-        // }
+        
         while (true){
             Console.WriteLine("Select an option below:\n1. Most Likely To\n2. Truth or Dare\n3. Two truths and a lie\n4. Add player\n5. Remove Player\n6. Display Scores\n7. Quit");
             userChoice = int.Parse(Console.ReadLine());
@@ -25,7 +22,7 @@ public class Menu{
                 mostLikelyTo.Begin(players);
             }
             else if(userChoice == 2){
-
+                truthOrDare.Begin(players);
             }
             else if(userChoice == 3){
 

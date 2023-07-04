@@ -5,7 +5,7 @@ public abstract class Game{
     //mostLikely to
     //straigh face
     //2 truths and a lie
-
+    protected int intChoice;
     protected Player _winner;
     public abstract void DetermineWinner(List<Player> players);
     public abstract void Begin(List<Player> players);

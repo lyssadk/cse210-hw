@@ -3,7 +3,9 @@ public class MostLikelyTo : Game {
     // would i do a filehandler just inside each one or be able to call it in here?
     private List<string> userPrompts = new List<string>();
     private List<string> usedPrompts = new List<string>();
-    private int howManyPrompts;
+
+    private int _second;
+    private int _first;
 
     public void fileHandler(){
         string[] lines = System.IO.File.ReadAllLines("mostLikely.txt");
@@ -19,17 +21,46 @@ public class MostLikelyTo : Game {
     //bonus challenge if i have time: Save the ones they were voted for and display the ones theyve won
     
     public override void DetermineWinner(List<Player> players){
-        Console.WriteLine("Please select the number of the player with the most votes: ");
-        DisplayUsers(players);
-        int first = int.Parse(Console.ReadLine());
+        try
+        {
+            Console.WriteLine("Please select the number of the player with the most votes: ");
+            DisplayUsers(players);
+            _first = int.Parse(Console.ReadLine());
 
-        Console.WriteLine("Please select the player that received the second most points.");
-        DisplayUsers(players);
-        int second = int.Parse(Console.ReadLine());
-        // i need to catch errors if they dont enter a number
+            if (_first>players.Count()){
+                Console.WriteLine("That number isn't an option. Please select one of the options.");
+                _first = int.Parse(Console.ReadLine());
+            }
+        }
 
-        players[first - 1].AddPoints(30);
-        players[second - 1].AddPoints(10);
+        catch (System.Exception)
+        {
+            Console.WriteLine("Please enter the number of the associated player who won the most points");
+            _first = int.Parse(Console.ReadLine());
+        }
+
+        try
+        {
+            Console.WriteLine("Please select the player that received the second most points.");
+            DisplayUsers(players);
+            _second = int.Parse(Console.ReadLine());
+
+            if (_second>players.Count()){
+                Console.WriteLine("That number isn't an option. Please select one of the options.");
+                _second = int.Parse(Console.ReadLine());
+            }
+        }
+        catch (System.Exception)
+        {
+            Console.WriteLine("Please enter the number of the associated player who won 2nd most points");
+            _second = int.Parse(Console.ReadLine());
+        }
+            // i need to catch errors if they dont enter a number
+
+            players[_first - 1].AddPoints(30);
+            players[_second - 1].AddPoints(10);
+            
+        
     }
     public override void Begin(List<Player> players)
     {
@@ -42,32 +73,32 @@ public class MostLikelyTo : Game {
                 break;
             }
             else if (decision == "2"){
-                // add to our list 
-                
-                Console.WriteLine("What prompt would you like to add?" );
-                string userprompt = Console.ReadLine() ?? string.Empty;
-                userPrompts.Add(userprompt);
-                
-                while(true){
-                    Console.WriteLine("Would you like to add another? Yes/No");
-                    userprompt = Console.ReadLine() ?? string.Empty;
-                    if(userprompt == "no"){
-                        mostBegin(userPrompts,players);
-                        break;
-                    }
+                try
+                {  
+                    Console.WriteLine("What prompt would you like to add?" );
+                    string userprompt = Console.ReadLine();
+                    userPrompts.Add(userprompt);
+                    while(true){
+                        Console.WriteLine("Would you like to add another? Yes/No");
+                        userprompt = Console.ReadLine();
+                        if(userprompt.ToLower() == "no"){
+                            mostBegin(userPrompts,players);
+                            break;
+                        }
 
-                    else if(userprompt == "No"){
-                        mostBegin(userPrompts,players);
-                        break;
-                    }
-
-                    else{
-                        Console.WriteLine("Enter next prompt:");
-                        userprompt = Console.ReadLine() ?? string.Empty;
-                        userPrompts.Add(userprompt);
-                    }
-                }   
-                break;
+                        else{
+                            Console.WriteLine("Enter next prompt:");
+                            userprompt = Console.ReadLine();
+                            userPrompts.Add(userprompt);
+                        }
+                    }   
+                    break;
+                }
+                catch (System.Exception)
+                {
+                    Console.WriteLine("There has been an error, apologies.");
+                }
+                
             }
             else if (decision == "3"){
                 // do nothing so it goes back to the main program.
@@ -87,16 +118,16 @@ public class MostLikelyTo : Game {
         fileHandler();
         int i = 0;
         Console.WriteLine("How many prompts would you like to go through before game ends?");
-        howManyPrompts = int.Parse(Console.ReadLine());
+        intChoice = int.Parse(Console.ReadLine());
 
-        while(howManyPrompts>prompts.Count()){
+        while(intChoice>prompts.Count()){
             Console.WriteLine($"There are only {prompts.Count()} prompts in desired bank of prompts. Please select a number less than or equal to this amount.");
-            howManyPrompts = int.Parse(Console.ReadLine());
+            intChoice = int.Parse(Console.ReadLine());
         }
 
         Random random = new Random();
 
-        while(i<howManyPrompts){
+        while(i<intChoice){
             i += 1;
             Console.WriteLine(prompts[random.Next(prompts.Count())]);
             usedPrompts.Add(prompts[random.Next(prompts.Count())]);

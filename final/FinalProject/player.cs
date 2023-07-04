@@ -1,10 +1,13 @@
 public class Player{
-    protected string _name;
-    protected int _score;
+    private string _name;
+    private int _score;
+
+    private int _gameScore;
 
     public Player(string name){
         _name = name;
         _score = 0;
+        _gameScore = 0;
     }
 
     public int AddPoints(int points){
@@ -18,5 +21,13 @@ public class Player{
 
     public int GetScore(){
         return _score;
+    }
+
+    public int GetGameScore(){
+        return _gameScore;
+    }
+
+    public void SetGameScore(int points){
+        _gameScore += points;
     }
 }
