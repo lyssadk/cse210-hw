@@ -6,7 +6,8 @@ public abstract class Game{
     //straigh face
     //2 truths and a lie
     protected int intChoice;
-    protected Player _winner;
+    protected Player _winner = new Player("");
+    protected List<Player> _winners = new List<Player>();
     public abstract void DetermineWinner(List<Player> players);
     public abstract void Begin(List<Player> players);
     public void DisplayUsers(List<Player> players){

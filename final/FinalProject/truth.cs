@@ -3,31 +3,45 @@ public class TruthOrDare : Game {
     private List<string> _dares = new List<string>();
     private List<string> _usedPrompts = new List<string>();
 
-
+    int BONUS = 50;
     private string _decision;
     private string _skipOr;
     public override void DetermineWinner(List<Player> players){
+        // Player bestScore = new Player("");
         foreach(Player player in players){
             player.AddPoints(player.GetGameScore());
-            foreach(Player player2 in players){
-                if(player == player2){
-                    continue;
-                }
-                else if(player.GetGameScore() > player2.GetGameScore()){
-                    // i would need another variable i think in the player class mayber to return? cause rn its just their overall score and not specifcally this game...
-                    // if player has a greater score it will be set as the winner. ??? 
-                    _winner = player;
-                }
-                else if(player.GetGameScore() < player2.GetGameScore()){
-                    _winner = player2;
-                }
-                // what would i do if their is a tie?
-            }
+            // foreach(Player player2 in players){
+            //     if(player == player2){
+            //         continue;
+            //     }
+            //     else if(player.GetGameScore() > player2.GetGameScore()){
+            //         // i would need another variable i think in the player class mayber to return? cause rn its just their overall score and not specifcally this game...
+            //         // if player has a greater score it will be set as the winner. ??? 
+            //         _winner = player;
+            //     }
+            //     else if(player.GetGameScore() < player2.GetGameScore()){
+            //         _winner = player2;
+            //     }
+            //     // what would i do if their is a tie?
+            // }
             /// look at how many points the player got playing this particular game and award bonus points if they win overall.../?????
+        }
+        foreach (Player player in players){
+            if (player.GetGameScore() >= _winner.GetGameScore()){
+                _winner = player;
+            }
+        }
+
+        foreach (Player player in players)
+        {
+            if(_winner.GetGameScore() == player.GetGameScore()){
+                player.AddPoints(BONUS);
+                Console.WriteLine($"{player.GetName()} tied for winner");
+            }
         }
 
         Console.WriteLine($"{_winner.GetName()} won this game, they have been awarded a bonus 100 points");
-        _winner.AddPoints(100);
+    
     }
 
     public override void Begin(List<Player> players)

@@ -46,8 +46,10 @@ public class Menu{
             }
             else if(userChoice == 6){
                 Console.Clear();
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 6, Console.CursorTop);
                 Console.WriteLine($"PLAYER| SCORE");
                 foreach(Player player in players){
+                    Console.SetCursorPosition((Console.WindowWidth / 2) - player.GetName().Count(), Console.CursorTop);
                    Console.WriteLine($"{player.GetName().ToUpper()} | {player.GetScore()}");
                 }
 
