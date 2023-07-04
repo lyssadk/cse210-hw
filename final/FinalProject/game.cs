@@ -1,6 +1,6 @@
 public abstract class Game{
     protected string _GameTitle;
-
+    protected fileHandler filer = new fileHandler();
     //truth or dare
     //mostLikely to
     //straigh face

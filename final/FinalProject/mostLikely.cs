@@ -7,14 +7,6 @@ public class MostLikelyTo : Game {
     private int _second;
     private int _first;
 
-    public void fileHandler(){
-        string[] lines = System.IO.File.ReadAllLines("mostLikely.txt");
-        // how would i grab random lines and only add those ones?
-        foreach (string line in lines)
-        {
-            prompts.Add(line);
-        }
-    }
 
     // enter player names, and ask if they want our preloaded most likely to prompts, or if they want their own
     // the winner is whoever is voted the most overall 
@@ -115,7 +107,7 @@ public class MostLikelyTo : Game {
     }
 
     public void mostBegin(List<string> prompts, List<Player> players){
-        fileHandler();
+        filer.filer(prompts, "mostLikely.txt");
         int i = 0;
         Console.WriteLine("How many prompts would you like to go through before game ends?");
         intChoice = int.Parse(Console.ReadLine());

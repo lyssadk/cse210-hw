@@ -3,6 +3,7 @@ public class TruthOrDare : Game {
     private List<string> _dares = new List<string>();
     private List<string> _usedPrompts = new List<string>();
 
+
     private string _decision;
     private string _skipOr;
     public override void DetermineWinner(List<Player> players){
@@ -40,8 +41,8 @@ public class TruthOrDare : Game {
             Console.WriteLine("Please enter a number.");
         }
 
-        fileHandlerTruth("truth.txt", _truths);
-        fileHandlerTruth("dare.txt", _dares);
+        filer.filer(_truths, "truth.txt");
+        filer.filer(_dares, "dare.txt");
 
         while(i < intChoice){
            
@@ -63,16 +64,6 @@ public class TruthOrDare : Game {
         }
         DetermineWinner(players);
     }
-    public void fileHandlerTruth(string filename, List<string> list){
-        string[] lines = System.IO.File.ReadAllLines(filename);
-        
-        foreach (string line in lines)
-        {
-            list.Add(line);
-        }
-
-    }
-
     public void skipOrComplete(Player player, List<string> list, int points){
         Random random = new Random();
         int randomN = random.Next(list.Count());
