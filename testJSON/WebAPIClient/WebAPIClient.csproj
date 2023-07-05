@@ -7,8 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Xam.Plugins.TextToSpeech" Version="4.0.0.7" />
-  </ItemGroup>
-
 </Project>

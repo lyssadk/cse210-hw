@@ -10,21 +10,6 @@ public class TruthOrDare : Game {
         // Player bestScore = new Player("");
         foreach(Player player in players){
             player.AddPoints(player.GetGameScore());
-            // foreach(Player player2 in players){
-            //     if(player == player2){
-            //         continue;
-            //     }
-            //     else if(player.GetGameScore() > player2.GetGameScore()){
-            //         // i would need another variable i think in the player class mayber to return? cause rn its just their overall score and not specifcally this game...
-            //         // if player has a greater score it will be set as the winner. ??? 
-            //         _winner = player;
-            //     }
-            //     else if(player.GetGameScore() < player2.GetGameScore()){
-            //         _winner = player2;
-            //     }
-            //     // what would i do if their is a tie?
-            // }
-            /// look at how many points the player got playing this particular game and award bonus points if they win overall.../?????
         }
         foreach (Player player in players){
             if (player.GetGameScore() >= _winner.GetGameScore()){

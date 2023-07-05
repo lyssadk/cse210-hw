@@ -1,8 +1,0 @@
-{
-    "runtimeDependencies": {
-        "Microsoft.NETFramework.ReferenceAssemblies": "4.8.0",
-        "System.Speech": {
-            "target": "project"
-        }
-    }
-}
