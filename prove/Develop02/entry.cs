@@ -7,9 +7,11 @@ public class Entry{
     public Entry(){
      DateTime theCurrentTime = DateTime.Now;
      date = theCurrentTime.ToShortDateString();
-
+     
       Prompt lprompt = new Prompt();
-      //prompt = lprompt.Random();
+      prompt = lprompt.GetRandomPrompts();
+
+     
 
     }
 

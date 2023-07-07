@@ -18,5 +18,11 @@ public class Prompt{
     public void removePrompt(){
        // _usedlist.Add(_promptlist[index]);
     }
+
+    public string GetRandomPrompts(){
+        Random random = new Random();
+        string prompt = _promptlist[random.Next(_promptlist.Count())];
+        return prompt;
+    }
         
     }
