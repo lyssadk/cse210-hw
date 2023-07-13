@@ -5,16 +5,20 @@ public class Movie : Game {
     private int _year;
     private int _minutes;
     
-    private List<string> _actors;
+    private string _actor1;
+    private string _actor2;
+    
     private string _description;
 
     private List<Movie> _movies = new List<Movie>();
 
-    public Movie(string name, int year, int minutes, string description) : base() {
+    public Movie(string name, int year, int minutes, string description, string actor1, string actor2) : base() {
         _name = name;
         _year = year; 
         _minutes = minutes;
         _description = description;
+        _actor1 = actor1;
+        _actor2 = actor2;
     }
 
     public Movie():base(){
@@ -24,6 +28,11 @@ public class Movie : Game {
     public string GetDescription(){
         return _description;
     }
+
+    public string GetActor1(){
+        return _actor1;
+    }
+
     public List<Movie> GetMovies(){
         return _movies;
     }
@@ -39,7 +48,11 @@ public class Movie : Game {
                 Console.WriteLine($"{player.GetName()}, What is the movie based of the following description?");
                 if(i < _movies.Count()){
                     Console.WriteLine(_movies[i].GetDescription());
-                    Console.ReadLine();
+                    Console.WriteLine("Would you like to know the actors?");
+                    string userChoice = Console.ReadLine();
+                    if (userChoice.ToLower() == "yes"){
+                        Console.WriteLine(_movies[i].GetActor1());
+                    }
                     i+=1;
                 }
                 else{
@@ -71,7 +84,10 @@ public class Movie : Game {
             _name = parts2[0];
             _minutes = int.Parse(parts2[2]);
             _year = int.Parse(parts2[1]);
-            Movie movie = new Movie(_name, _year, _minutes, _description);
+            _actor1 = parts2[3];
+            _actor2 = parts2[4];
+            
+            Movie movie = new Movie(_name, _year, _minutes, _description, _actor1, _actor2);
             list.Add(movie);
 
             i+=1;
