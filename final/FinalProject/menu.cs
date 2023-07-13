@@ -4,6 +4,7 @@ public class Menu{
     private List<Player> players = new List<Player>();
     private TruthOrDare truthOrDare = new TruthOrDare();
     private MostLikelyTo mostLikelyTo = new MostLikelyTo();
+    private Movie movie = new Movie();
     
     public void display(){
         Console.WriteLine("--------------------------");
@@ -14,7 +15,7 @@ public class Menu{
         GetPlayers(players);
         
         while (true){
-            Console.WriteLine("Select an option below:\n1. Most Likely To\n2. Truth or Dare\n3. Two truths and a lie\n4. Add player\n5. Remove Player\n6. Display Scores\n7. Quit");
+            Console.WriteLine("Select an option below:\n1. Most Likely To\n2. Truth or Dare\n3. Guess the movie\n4. Add player\n5. Remove Player\n6. Display Scores\n7. Quit");
             userChoice = int.Parse(Console.ReadLine());
             Console.Clear();
 
@@ -25,7 +26,7 @@ public class Menu{
                 truthOrDare.Begin(players);
             }
             else if(userChoice == 3){
-
+                movie.Begin(players);
             }
             else if(userChoice == 4){
                 GetPlayers(players);
