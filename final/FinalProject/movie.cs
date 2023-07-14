@@ -99,6 +99,9 @@ public class Movie : Game {
                     //make this a method that takes in a string (aka the user input yerrr)
                         Console.WriteLine("----------------------------------");
                         Console.WriteLine($"Congrats, you nailed it. You get {point} points for getting it on the {amountofTry} try");
+                        Console.WriteLine("    ");
+                        Thread.Sleep(3000);
+                        Console.Clear();
                         player.AddToGameScore(point);
                     }
                     else{
@@ -114,10 +117,11 @@ public class Movie : Game {
                                 Console.WriteLine("----------------------------------");
                                 Console.WriteLine($"The movie was {_movies[i].GetName()}");
                                 Console.WriteLine("----------------------------------");
+                                Thread.Sleep(3000);
+                                Console.Clear();
                                 break;
                             }
                         }
-                        Congrats(player,point, userChoice, amountofTry, i);
 
                     }
                     i+=1;
@@ -126,7 +130,7 @@ public class Movie : Game {
                 else{
                     i = 0;
                     Console.WriteLine("Not enough movies in database to continue");
-                    Thread.Sleep(3000);
+                    Thread.Sleep(5000);
                     Console.Clear();
                 }
 
@@ -141,6 +145,9 @@ public class Movie : Game {
             Console.WriteLine($"Congrats, you nailed it. You get {point} points for getting it in {amountofTry} guess(es)");
             Console.WriteLine("----------------------------------");
             Console.WriteLine("    ");
+            Thread.Sleep(3000);
+            Console.Clear();
+            
             player.AddToGameScore(point);
         }
     }
