@@ -47,10 +47,10 @@ public class MostLikelyTo : Game {
             Console.WriteLine("Please enter the number of the associated player who won 2nd most points");
             _second = int.Parse(Console.ReadLine());
         }
-            // i need to catch errors if they dont enter a number
-
-            players[_first - 1].AddPoints(30);
-            players[_second - 1].AddPoints(10);
+        // i need to catch errors if they dont enter a number
+        
+        players[_first - 1].AddPoints(30);
+        players[_second - 1].AddPoints(10);
             
         
     }

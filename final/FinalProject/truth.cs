@@ -7,7 +7,7 @@ public class TruthOrDare : Game {
     private string _decision;
     private string _skipOr;
     public override void DetermineWinner(List<Player> players){
-        // Player bestScore = new Player("");
+        
         foreach(Player player in players){
             player.AddPoints(player.GetGameScore());
         }
@@ -31,6 +31,7 @@ public class TruthOrDare : Game {
     {
         int i = 0;
         Console.WriteLine("How many rounds would you like to go through before game ends?");
+
         try{
             intChoice = int.Parse(Console.ReadLine());
         }
@@ -48,12 +49,15 @@ public class TruthOrDare : Game {
             foreach(Player player in players){
                 Console.WriteLine($"{player.GetName()}, truth or dare?");
                 _decision = Console.ReadLine();
+
                 if(_decision.ToLower() == "truth"){
                     skipOrComplete(player, _truths, 25);
                 }
+
                 else if(_decision.ToLower() == "dare"){
                     skipOrComplete(player, _dares, 35);
                 }
+
                 else{
                     Console.WriteLine("Please type in truth or dare.");
                 }
@@ -64,18 +68,23 @@ public class TruthOrDare : Game {
     public void skipOrComplete(Player player, List<string> list, int points){
         Random random = new Random();
         int randomN = random.Next(list.Count());
+
         Console.WriteLine(list[randomN]);
+
         _usedPrompts.Add(list[randomN]);
         list.RemoveAt(randomN);
+
         Console.WriteLine("Skip or Complete?");
         _skipOr = Console.ReadLine();
-            if(_skipOr.ToLower() == "skip"){
-                Console.WriteLine("Wimp. No points will be added.");
-            }
-            else if(_skipOr.ToLower() == "complete"){
-                player.AddToGameScore(points);
-                Console.WriteLine($"{points}Points have been awarded.");
-            }
+        
+        if(_skipOr.ToLower() == "skip"){
+            Console.WriteLine("Wimp. No points will be added.");
+        }
+
+        else if(_skipOr.ToLower() == "complete"){
+            player.AddToGameScore(points);
+            Console.WriteLine($"{points}Points have been awarded.");
+        }
     }
     
 }
