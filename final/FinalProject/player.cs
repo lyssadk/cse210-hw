@@ -26,8 +26,11 @@ public class Player{
     public int GetGameScore(){
         return _gameScore;
     }
-
-    public void SetGameScore(int points){
+    public int SetGameScore(int points){
+        _gameScore = points;
+        return _gameScore;
+    }
+    public void AddToGameScore(int points){
         _gameScore += points;
     }
 }

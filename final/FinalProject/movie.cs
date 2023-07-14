@@ -20,11 +20,8 @@ public class Movie : Game {
         _actor1 = actor1;
         _actor2 = actor2;
     }
-
     public Movie():base(){
-
     }
-    
     public string GetDescription(){
         return _description;
     }
@@ -32,48 +29,19 @@ public class Movie : Game {
     public string GetActor1(){
         return _actor1;
     }
-
-    public List<Movie> GetMovies(){
-        return _movies;
+    public string GetActor2(){
+        return _actor2;
     }
     public string GetName(){
         return _name;
     }
-    public override void Begin(List<Player> players){
-        movieFiler("movie.txt", _movies);
-        int p = 0;
-        int i = 0;
-        while (p < players.Count()){
-            foreach(Player player in players){
-                Console.WriteLine($"{player.GetName()}, What is the movie based of the following description?");
-                if(i < _movies.Count()){
-                    Console.WriteLine(_movies[i].GetDescription());
-                    Console.WriteLine("Would you like to know the actors?");
-                    string userChoice = Console.ReadLine();
-                    if (userChoice.ToLower() == "yes"){
-                        Console.WriteLine(_movies[i].GetActor1());
-                    }
-                    i+=1;
-                }
-                else{
-                    i = 0;
-                    Console.WriteLine("Not enough movies in database to continue, repeating");
-                    Console.WriteLine(_movies[i].GetDescription());
-                }
-                p += 1;
-            }
-        }
-        //ask them to guess the movie title based on description, and they can get hints with the actors in it and the year it was produced.
-
-    }
-
     
     public override void DetermineWinner(List<Player> players){
         // who ever guesses the movie first wins the points, whoever gets the most points overall gets a bonus
     }
 
         
-     public List<Movie> movieFiler(string filename, List<Movie> list){
+    public List<Movie> movieFiler(string filename, List<Movie> list){
         string[] lines = System.IO.File.ReadAllLines(filename);
         int i = 0;
         foreach (string line in lines)
@@ -97,8 +65,86 @@ public class Movie : Game {
         return list;
     }
 
+    public override void Begin(List<Player> players){
+        movieFiler("movie.txt", _movies);
+        int p = 0;
+        int i = 0;
+        int point = 100;
+        int amountofTry = 1;
+        while (p < players.Count()){
+            foreach(Player player in players){
+                player.SetGameScore(0);
+                Console.WriteLine($"{player.GetName()}, What is the movie based of the following description?");
+                if(i < _movies.Count()){
+                    Console.WriteLine("----------------------------------");
+                    Console.WriteLine(_movies[i].GetDescription());
+                    Console.WriteLine("----------------------------------");
+                    Console.WriteLine("Would you like a hint? (Type yes or if not type in name of movie you think it is)");
+                    string userChoice = Console.ReadLine();
+                    while (userChoice.ToLower() == "yes"){
+                        Console.WriteLine($"Actor: {_movies[i].GetActor1()}");
+                        point = 50;
+                        amountofTry = 2;
+                        Console.WriteLine("----------------------------------");
+                        Console.WriteLine("Type Yes for another hint, or enter name of movie");
+                        userChoice = Console.ReadLine();
+                        if(userChoice.ToLower() == "yes"){
+                            Console.WriteLine($"Actor: {_movies[i].GetActor2()}");
+                            point = point - 20;
+                            amountofTry = 3;
+                            // make a method that reveals answer 
+                        }
+                    }
+                    if(userChoice.ToLower() == _movies[i].GetName().ToLower()) {
+                    //make this a method that takes in a string (aka the user input yerrr)
+                        Console.WriteLine("----------------------------------");
+                        Console.WriteLine($"Congrats, you nailed it. You get {point} points for getting it on the {amountofTry} try");
+                        player.AddToGameScore(point);
+                    }
+                    else{
+                        while(userChoice.ToLower() != _movies[i].GetName().ToLower()){
+                            point -= 2;
+                            amountofTry += 1;
+                            Console.WriteLine("----------------------------------");
+                            Console.WriteLine("Incorrect Guess. Type 'reveal' to give up or enter another guess");
+                            userChoice = Console.ReadLine();
+                            Congrats(player,point, userChoice, amountofTry, i);
+
+                            if(userChoice.ToLower() == "reveal"){
+                                Console.WriteLine("----------------------------------");
+                                Console.WriteLine($"The movie was {_movies[i].GetName()}");
+                                Console.WriteLine("----------------------------------");
+                                break;
+                            }
+                        }
+                        Congrats(player,point, userChoice, amountofTry, i);
+
+                    }
+                    i+=1;
+                }
+
+                else{
+                    i = 0;
+                    Console.WriteLine("Not enough movies in database to continue");
+                    Thread.Sleep(3000);
+                    Console.Clear();
+                }
+
+                p += 1;
+            }
+        }
+    }
+    public void Congrats(Player player, int point, string userChoice, int amountofTry, int i){
+        if(userChoice.ToLower() == _movies[i].GetName().ToLower()) {
+            //make this a method that takes in a string (aka the user input yerrr)
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine($"Congrats, you nailed it. You get {point} points for getting it in {amountofTry} guess(es)");
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine("    ");
+            player.AddToGameScore(point);
+        }
+    }
 }
         
-
 
 

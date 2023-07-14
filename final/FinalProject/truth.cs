@@ -21,11 +21,9 @@ public class TruthOrDare : Game {
         {
             if(_winner.GetGameScore() == player.GetGameScore()){
                 player.AddPoints(BONUS);
-                Console.WriteLine($"{player.GetName()} tied for winner");
+                Console.WriteLine($"{player.GetName()} is a winner");
             }
         }
-
-        Console.WriteLine($"{_winner.GetName()} won this game, they have been awarded a bonus 100 points");
     
     }
 
@@ -67,19 +65,16 @@ public class TruthOrDare : Game {
         Random random = new Random();
         int randomN = random.Next(list.Count());
         Console.WriteLine(list[randomN]);
-        Console.WriteLine(list.Count());
         _usedPrompts.Add(list[randomN]);
         list.RemoveAt(randomN);
-
-        Console.WriteLine(list.Count());
         Console.WriteLine("Skip or Complete?");
         _skipOr = Console.ReadLine();
             if(_skipOr.ToLower() == "skip"){
                 Console.WriteLine("Wimp. No points will be added.");
             }
             else if(_skipOr.ToLower() == "complete"){
-                player.SetGameScore(points);
-                Console.WriteLine("25 Points have been awarded.");
+                player.AddToGameScore(points);
+                Console.WriteLine($"{points}Points have been awarded.");
             }
     }
     
