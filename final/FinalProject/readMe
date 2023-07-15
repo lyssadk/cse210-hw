@@ -1,0 +1,13 @@
+There are 3 games you can play
+
+Some have thread.sleep, so wait min of 5 seconds before thinking its crashed haha
+
+For Most Likely To, simply put in how many rounds you would like to play and then it will loop through the list of prompts
+Type in the number associated with the player to award them points. 
+
+For truth or dare, just put in how many rounds you want to play, and then from there you just have to type in skip or complete to award or not award points.
+
+for the movie game, you are to guess the title of the movie based on description and if its wrong you should be able to type reveal when it prompts you to break the loop
+
+it should be straightforward, but if its not i apologize.
+You can also remove players, add them and display scores.
