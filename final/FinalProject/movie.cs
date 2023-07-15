@@ -38,6 +38,11 @@ public class Movie : Game {
     
     public override void DetermineWinner(List<Player> players){
         // who ever guesses the movie first wins the points, whoever gets the most points overall gets a bonus
+        foreach (Player player in players)
+        {
+            player.AddPoints(player.GetGameScore());
+        }
+        Console.WriteLine("Points have been added appropriately to all players.\nDisplay scores in main menu to see updated score.");
     }
 
         
@@ -94,6 +99,9 @@ public class Movie : Game {
                             amountofTry = 3;
                             // make a method that reveals answer 
                         }
+                        else{
+                            break;
+                        }
                     }
                     if(userChoice.ToLower() == _movies[i].GetName().ToLower()) {
                     //make this a method that takes in a string (aka the user input yerrr)
@@ -135,6 +143,7 @@ public class Movie : Game {
                 }
 
                 p += 1;
+                DetermineWinner(players);
             }
         }
     }

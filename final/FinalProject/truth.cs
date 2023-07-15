@@ -21,7 +21,7 @@ public class TruthOrDare : Game {
         {
             if(_winner.GetGameScore() == player.GetGameScore()){
                 player.AddPoints(BONUS);
-                Console.WriteLine($"{player.GetName()} is a winner");
+                Console.WriteLine($"{player.GetName()} got BONUS points yerr");
             }
         }
     
@@ -47,6 +47,7 @@ public class TruthOrDare : Game {
             i += 1;
             
             foreach(Player player in players){
+                Console.Clear();
                 Console.WriteLine($"{player.GetName()}, truth or dare?");
                 _decision = Console.ReadLine();
 
@@ -79,11 +80,13 @@ public class TruthOrDare : Game {
         
         if(_skipOr.ToLower() == "skip"){
             Console.WriteLine("Wimp. No points will be added.");
+            Thread.Sleep(2000);
         }
 
         else if(_skipOr.ToLower() == "complete"){
             player.AddToGameScore(points);
-            Console.WriteLine($"{points}Points have been awarded.");
+            Console.WriteLine($"{points} Points have been awarded.");
+            Thread.Sleep(2000);
         }
     }
     
