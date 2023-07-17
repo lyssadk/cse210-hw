@@ -125,6 +125,7 @@ public class MostLikelyTo : Game {
             usedPrompts.Add(prompts[random.Next(prompts.Count())]);
             prompts.RemoveAt(random.Next(prompts.Count()));
             DetermineWinner(players);
+            Console.Clear();
         }
     }
 

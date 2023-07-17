@@ -51,6 +51,7 @@ public class TruthOrDare : Game {
                 Console.WriteLine($"{player.GetName()}, truth or dare?");
                 _decision = Console.ReadLine();
 
+                
                 if(_decision.ToLower() == "truth"){
                     skipOrComplete(player, _truths, 25);
                 }
@@ -59,11 +60,25 @@ public class TruthOrDare : Game {
                     skipOrComplete(player, _dares, 35);
                 }
 
-                else{
-                    Console.WriteLine("Please type in truth or dare.");
+                else {
+                    while (true){
+                        
+                        Console.WriteLine("Please type in truth or dare.");
+                        _decision = Console.ReadLine();
+                        if(_decision.ToLower() == "truth"){
+                            skipOrComplete(player, _truths, 25);
+                            break;
+                        }
+
+                        else if(_decision.ToLower() == "dare"){
+                            skipOrComplete(player, _dares, 35);
+                            break;
+                        }
+                    }
                 }
             }
         }
+        Console.Clear();
         DetermineWinner(players);
     }
     public void skipOrComplete(Player player, List<string> list, int points){

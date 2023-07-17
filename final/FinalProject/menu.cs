@@ -15,21 +15,30 @@ public class Menu{
         GetPlayers(players);
         
         while (true){
+            Console.Clear();
             Console.WriteLine("Select an option below:\n1. Most Likely To\n2. Truth or Dare\n3. Guess the movie\n4. Add player\n5. Remove Player\n6. Display Scores\n7. Quit");
             userChoice = int.Parse(Console.ReadLine());
             Console.Clear();
 
             if(userChoice == 1){
                 mostLikelyTo.Begin(players);
+                Console.WriteLine("Heading back to menu");
+                Thread.Sleep(3500);
             }
             else if(userChoice == 2){
                 truthOrDare.Begin(players);
+                Console.WriteLine("Heading back to menu");
+                Thread.Sleep(3500);
             }
             else if(userChoice == 3){
                 movie.Begin(players);
+                Console.WriteLine("Heading back to menu");
+                Thread.Sleep(3500);
             }
             else if(userChoice == 4){
                 GetPlayers(players);
+                Console.WriteLine("Heading back to menu");
+                Thread.Sleep(3500);
 
             }
             else if(userChoice == 5){
@@ -47,12 +56,19 @@ public class Menu{
             }
             else if(userChoice == 6){
                 Console.Clear();
-                Console.SetCursorPosition((Console.WindowWidth / 2) - 6, Console.CursorTop);
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 5, Console.CursorTop);
                 Console.WriteLine($"PLAYER| SCORE");
                 foreach(Player player in players){
                     Console.SetCursorPosition((Console.WindowWidth / 2) - player.GetName().Count(), Console.CursorTop);
                    Console.WriteLine($"{player.GetName().ToUpper()} | {player.GetScore()}");
                 }
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 12, Console.CursorTop);
+                Console.WriteLine("--------------------------------");
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 12, Console.CursorTop);
+                Console.WriteLine("Press any key to return to menu");
+                Console.SetCursorPosition((Console.WindowWidth / 2) - 12, Console.CursorTop);
+                Console.WriteLine("--------------------------------");
+                string returnM =Console.ReadLine();
 
             }
              else if(userChoice == 7){
