@@ -1,10 +1,6 @@
 public abstract class Game{
-    protected string _GameTitle;
     protected fileHandler filer = new fileHandler();
-    //truth or dare
-    //mostLikely to
-    //straigh face
-    //2 truths and a lie
+    
     protected int intChoice;
     protected Player _winner = new Player("");
     protected List<Player> _winners = new List<Player>();
