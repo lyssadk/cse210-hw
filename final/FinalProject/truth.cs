@@ -26,19 +26,36 @@ public class TruthOrDare : Game {
         }
     
     }
-
     public override void Begin(List<Player> players)
     {
+        while (true)
+        {
+            Console.WriteLine("Would you like to:\n1. Begin \n2. Return to other games");
+            string decision = Console.ReadLine();
+            if (decision == "1"){
+                truthBegin(players);
+                break;
+            }
+            
+            else if (decision == "2"){
+                // do nothing so it goes back to the main program.
+                Console.WriteLine("Heading back to main menu");
+                Thread.Sleep(2000);
+                Console.Clear();
+                break;
+            }
+            else{
+                Console.WriteLine("This wasn't an option. Please enter a number");
+            }
+
+        }
+    }
+    public void truthBegin(List<Player> players)
+    {
         int i = 0;
-        Console.WriteLine("How many rounds would you like to go through before game ends?");
-
-        try{
-            intChoice = int.Parse(Console.ReadLine());
-        }
-        catch{
-            Console.WriteLine("Please enter a number.");
-        }
-
+        Console.WriteLine("How many prompts would you like to go through before game ends?");
+        intChoice = int.Parse(Console.ReadLine());
+      
         filer.filer(_truths, "truth.txt");
         filer.filer(_dares, "dare.txt");
 

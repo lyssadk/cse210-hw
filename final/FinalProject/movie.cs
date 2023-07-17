@@ -86,23 +86,24 @@ public class Movie : Game {
                     Console.WriteLine("----------------------------------");
                     Console.WriteLine("Would you like a hint? (Type yes or if not type in name of movie you think it is)");
                     string userChoice = Console.ReadLine();
-                    while (userChoice.ToLower() == "yes"){
+                    if (userChoice.ToLower() == "yes"){
                         Console.WriteLine($"Actor: {_movies[i].GetActor1()}");
                         point = 50;
                         amountofTry = 2;
                         Console.WriteLine("----------------------------------");
-                        Console.WriteLine("Type Yes for another hint, or enter name of movie");
+                        Console.WriteLine("Enter name of movie or type yes for another actor");
                         userChoice = Console.ReadLine();
                         if(userChoice.ToLower() == "yes"){
                             Console.WriteLine($"Actor: {_movies[i].GetActor2()}");
                             point = point - 20;
                             amountofTry = 3;
+                            Console.WriteLine("Enter name of movie");
+                            userChoice = Console.ReadLine();
                             // make a method that reveals answer 
                         }
-                        else{
-                            break;
-                        }
+
                     }
+                    
                     if(userChoice.ToLower() == _movies[i].GetName().ToLower()) {
                     //make this a method that takes in a string (aka the user input yerrr)
                         Console.WriteLine("----------------------------------");
@@ -114,7 +115,7 @@ public class Movie : Game {
                     }
                     else{
                         while(userChoice.ToLower() != _movies[i].GetName().ToLower()){
-                            point -= 2;
+                            point -= 5;
                             amountofTry += 1;
                             Console.WriteLine("----------------------------------");
                             Console.WriteLine("Incorrect Guess. Type 'reveal' to give up or enter another guess");

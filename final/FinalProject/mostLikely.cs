@@ -1,7 +1,7 @@
 public class MostLikelyTo : Game {
     private List<string> prompts = new List<string>();
     // would i do a filehandler just inside each one or be able to call it in here?
-    private List<string> userPrompts = new List<string>();
+   
     private List<string> usedPrompts = new List<string>();
 
     private int _second;
@@ -58,41 +58,14 @@ public class MostLikelyTo : Game {
     {
         while (true)
         {
-            Console.WriteLine("Would you like to:\n1. Use our prompts\n2. Enter your own\n3. Return to other games");
+            Console.WriteLine("Would you like to:\n1. Use our prompts\n2. Return to other games");
             string decision = Console.ReadLine();
             if (decision == "1"){
                 mostBegin(prompts, players);
                 break;
             }
+            
             else if (decision == "2"){
-                try
-                {  
-                    Console.WriteLine("What prompt would you like to add?" );
-                    string userprompt = Console.ReadLine();
-                    userPrompts.Add(userprompt);
-                    while(true){
-                        Console.WriteLine("Would you like to add another? Yes/No");
-                        userprompt = Console.ReadLine();
-                        if(userprompt.ToLower() == "no"){
-                            mostBegin(userPrompts,players);
-                            break;
-                        }
-
-                        else{
-                            Console.WriteLine("Enter next prompt:");
-                            userprompt = Console.ReadLine();
-                            userPrompts.Add(userprompt);
-                        }
-                    }   
-                    break;
-                }
-                catch (System.Exception)
-                {
-                    Console.WriteLine("There has been an error, apologies.");
-                }
-                
-            }
-            else if (decision == "3"){
                 // do nothing so it goes back to the main program.
                 Console.WriteLine("Heading back to main menu");
                 Thread.Sleep(2000);
