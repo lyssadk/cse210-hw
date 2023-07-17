@@ -3,7 +3,7 @@ public abstract class Game{
     
     protected int intChoice;
     protected Player _winner = new Player("");
-    protected List<Player> _winners = new List<Player>();
+    
     public abstract void DetermineWinner(List<Player> players);
     public abstract void Begin(List<Player> players);
     public void DisplayUsers(List<Player> players){
